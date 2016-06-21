@@ -1,0 +1,48 @@
+
+
+
+#main-header--wrapper{
+	background-image:url("../images/main-title.jpg");
+	//background-color:aqua;
+	background-size:cover;
+	width:100% auto;
+	height:650px;
+
+}
+
+
+.main-header--title {
+	padding-top:10%;
+	text-align:center;
+
+}
+
+
+
+
+.nav_container--global{
+	padding-top:40px;
+}
+nav{
+	background-color:transparentize(#333399,0.5);
+	ul{
+		text-align:center;
+	}
+}
+.nav_list--main{
+	display: inline-block;
+	padding:$half-spacing-unit;
+	padding-right:20px;
+	> a{
+		color:#bfbfbf;
+		text-decoration: none;
+		padding:30px;
+		font-size:$h4-size;
+		&:hover{
+			color:$hover_link--main;
+		}
+		&:visited{
+			color:$hover_link--main;
+		}
+	}
+}
