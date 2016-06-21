@@ -3,7 +3,7 @@ h1{
 	@include font-size($giga-size, $line-height:true);
 	font-family: 'Economica', sans-serif;
 	text-align:center;
-	color:$color_font--color;
+	color:$header_text--color;
 }
 
 
