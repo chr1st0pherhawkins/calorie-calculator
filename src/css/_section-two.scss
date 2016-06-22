@@ -1,10 +1,28 @@
 .flexbox__item--custom {
-        display:table-cell;
-    }
+	display:table-cell;
+}
 
-    .fat-icon{
-    	width:100px;
-    	height:100px;
+.fat-icon{
+	width:100px;
+	height:100px;
 
-    	
-    }
+	position: relative;
+	left: 82px;
+}
+
+.protein-icon{
+	width:100px;
+	height:100px;
+
+	position: relative;
+	left: 101px;
+}
+
+
+.carbs-icon{
+	width:100px;
+	height:100px;
+
+	position: relative;
+	left: 82px;
+}
