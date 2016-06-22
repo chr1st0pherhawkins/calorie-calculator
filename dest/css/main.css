@@ -1557,6 +1557,52 @@ html.flexbox {
   vertical-align: middle; }
 
 /*------------------------------------*\
+    $COLUMNS
+\*------------------------------------*/
+/**
+ * Here we can set elements in columns of text using CSS3, e.g.:
+ *
+   <p class=text-cols--2>
+ *
+ * Demo: jsfiddle.net/inuitcss/E26Yd
+ *
+ */
+.text-cols--2, .text-cols--3, .text-cols--4, .text-cols--5 {
+  -webkit-column-gap: 24px;
+  -moz-column-gap: 24px;
+  -ms-column-gap: 24px;
+  -o-column-gap: 24px;
+  column-gap: 24px; }
+
+.text-cols--2 {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  -ms-column-count: 2;
+  -o-column-count: 2;
+  column-count: 2; }
+
+.text-cols--3 {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  -ms-column-count: 3;
+  -o-column-count: 3;
+  column-count: 3; }
+
+.text-cols--4 {
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+  -ms-column-count: 4;
+  -o-column-count: 4;
+  column-count: 4; }
+
+.text-cols--5 {
+  -webkit-column-count: 5;
+  -moz-column-count: 5;
+  -ms-column-count: 5;
+  -o-column-count: 5;
+  column-count: 5; }
+
+/*------------------------------------*\
     $ISLAND
 \*------------------------------------*/
 /**
@@ -1586,6 +1632,46 @@ html.flexbox {
  */
 .islet {
   padding: 12px; }
+
+/*------------------------------------*\
+    $LOZENGES
+\*------------------------------------*/
+/**
+ * Create pill- and lozenge-like runs of text, e.g.:
+ *
+   <p>This <span class=pill>here</span> is a pill!</p>
+ *
+   <p>This <span class=loz>here</span> is also a lozenge!</p>
+ *
+ * Pills have fully rounded ends, lozenges have only their corners rounded.
+ *
+ * Demo: jsfiddle.net/inuitcss/N3pGm
+ *
+ */
+.pill, .loz {
+  display: inline-block;
+  /**
+   * These numbers set in ems mean that, at its narrowest, a lozenge will be
+   * the same width as the `line-height` set on the `html` element.
+   * This allows us to use the `.loz` in almost any `font-size` we wish.
+   */
+  min-width: 1em;
+  padding-right: 0.25em;
+  padding-left: 0.25em;
+  /* =1.50em */
+  text-align: center;
+  background-color: #ccc;
+  color: #fff;
+  /* Override this color in your theme stylesheet */
+  /**
+   * Normally we’d use border-radius:100%; but instead here we just use an
+   * overly large number; `border-radius:100%;` would create an oval on
+   * non-square elements whereas we just want to round the ends of an element.
+   */
+  border-radius: 100px; }
+
+.loz {
+  border-radius: 4px; }
 
 /**
  * Style trumps; helper and brand classes
@@ -2579,16 +2665,21 @@ h4 {
   font-size: 30px;
   font-size: 1.875rem;
   line-height: 1.6;
+  font-family: 'Economica', sans-serif;
   line-height: 48px;
-  color: #3399FF;
+  color: #3366CC;
   text-align: center; }
 
 p {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
+  font-family: 'Economica', sans-serif;
   line-height: 31.2px;
-  color: #3399FF; }
+  color: #3366CC; }
+
+a {
+  font-family: 'Economica', sans-serif; }
 
 #main-header--wrapper {
   background-image: url("../images/main-title.jpg");
@@ -2623,8 +2714,8 @@ nav {
       color: #FFFFFF; }
 
 .border_section {
-  border: 2px groove #A5A3C6;
-  background-color: #BFBED0; }
+  border: 1px groove #A5A3C6;
+  background-color: #e7e7e6; }
 
 .section_padding--all {
   padding: 1%; }
@@ -2639,5 +2730,16 @@ nav {
 .section_padding--right {
   padding: 5%;
   padding-left: 5%; }
+
+.flexbox__item--custom {
+  display: table-cell; }
+
+.fat-icon {
+  width: 100px;
+  height: 100px;
+  float: center; }
+
+body {
+  background-color: #fffffc; }
 
 /*# sourceMappingURL=main.css.map */
