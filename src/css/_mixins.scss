@@ -11,7 +11,8 @@
 	padding-left:$padding-left;
 }
 
-@mixin pad--left($padding, $padding-right){
+@mixin pad--left($padding, $padding-right, $padding-left){
 	padding:$padding;
 	padding-right:$padding-right;
+	padding-left:$padding-left;
 }

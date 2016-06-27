@@ -129,28 +129,28 @@
  */
 /*------------------------------------*\
     $DEFAULTS
-\*------------------------------------*/
+    \*------------------------------------*/
 /**
  * inuit.css’ default variables. Redefine these in your `_vars.scss` file (found
  * in the inuit.css-web-template) to override them.
- */
+*/
 /*------------------------------------*\
     $DEBUG
-\*------------------------------------*/
+    \*------------------------------------*/
 /**
  * Debug mode will visually highlight any potential markup/accessibility quirks
  * in the browser. Set to `true` or `false`.
  */
 /*------------------------------------*\
     $BORDER-BOX
-\*------------------------------------*/
+    \*------------------------------------*/
 /**
  * Do you want all elements to adopt `box-sizing:border-box;` as per
  * paulirish.com/2012/box-sizing-border-box-ftw ?
  */
 /*------------------------------------*\
     $BASE
-\*------------------------------------*/
+    \*------------------------------------*/
 /**
  * Base stuff
  */
@@ -162,7 +162,7 @@
  */
 /*------------------------------------*\
     $RESPONSIVE
-\*------------------------------------*/
+    \*------------------------------------*/
 /**
  * Responsiveness?
  */
@@ -185,13 +185,13 @@
  */
 /*------------------------------------*\
     $FONT-SIZES
-\*------------------------------------*/
+    \*------------------------------------*/
 /**
  * Font-sizes (in pixels). Refer to relevant sections for their implementations.
  */
 /*------------------------------------*\
     $QUOTES
-\*------------------------------------*/
+    \*------------------------------------*/
 /**
  * English quote marks?
  */
@@ -204,7 +204,7 @@
  */
 /*------------------------------------*\
     $BRAND
-\*------------------------------------*/
+    \*------------------------------------*/
 /**
  * Brand stuff
  */
@@ -213,13 +213,13 @@
  */
 /*------------------------------------*\
     $OBJECTS AND ABSTRACTIONS
-\*------------------------------------*/
+    \*------------------------------------*/
 /**
  * Which objects and abstractions would you like to use?
  */
 /*------------------------------------*\
     $FRAMEWORK
-\*------------------------------------*/
+    \*------------------------------------*/
 /**
  * inuit.css will work these next ones out for use within the framework.
  *
@@ -1634,6 +1634,62 @@ html.flexbox {
   padding: 12px; }
 
 /*------------------------------------*\
+    $FLYOUT
+\*------------------------------------*/
+/**
+ * Flyouts are pieces of content that fly out of a parent when said parent is
+ * hovered. They typically appear bottom-left of the parent.
+ *
+   <div class=flyout>
+       Foo
+       <div class=flyout__content>
+           <h1>Lorem</h1>
+           <p>Ipsum</p>
+       </div>
+   </div>
+ *
+ * Extend these objects in your theme stylesheet.
+ *
+ * Demo: jsfiddle.net/inuitcss/B52HG
+ *
+ */
+.flyout,
+.flyout--alt {
+  position: relative;
+  overflow: hidden; }
+
+.flyout__content {
+  /**
+   * Position the flyouts off-screen. This is typically better than
+   * `display:none;`.
+   */
+  position: absolute;
+  top: 100%;
+  left: -99999px; }
+
+/**
+ * Bring the flyouts into view when you hover their parents.
+ * Two different types of flyout; ‘regular’ (`.flyout`) and ‘alternative’
+ * (`.flyout--alt`).
+ */
+.flyout:hover,
+.flyout--alt:hover {
+  overflow: visible; }
+
+/**
+ * Regular flyouts sit all the way from the top, flush left.
+ */
+.flyout:hover > .flyout__content {
+  left: 0; }
+
+/**
+ * Alternative flyouts sit all the way from the left, flush top.
+ */
+.flyout--alt:hover > .flyout__content {
+  top: 0;
+  left: 100%; }
+
+/*------------------------------------*\
     $LOZENGES
 \*------------------------------------*/
 /**
@@ -2657,7 +2713,7 @@ h1 {
   font-size: 96px;
   font-size: 6rem;
   line-height: 1;
-  font-family: 'Economica', sans-serif;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
   text-align: center;
   color: #3366CC; }
 
@@ -2665,7 +2721,7 @@ h4 {
   font-size: 30px;
   font-size: 1.875rem;
   line-height: 1.6;
-  font-family: 'Economica', sans-serif;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
   line-height: 48px;
   color: #3366CC;
   text-align: center; }
@@ -2674,17 +2730,20 @@ p {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
-  font-family: 'Economica', sans-serif;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
   line-height: 31.2px;
   color: #3366CC; }
 
 a {
-  font-family: 'Economica', sans-serif; }
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif; }
+
+h3 {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  text-align: center; }
 
 #main-header--wrapper {
   background-image: url("../images/main-title.jpg");
   background-size: cover;
-  width: 100% auto;
   height: 650px; }
 
 .main-header--title {
@@ -2695,18 +2754,56 @@ a {
   padding-top: 40px; }
 
 nav {
-  background-color: rgba(51, 51, 153, 0.5); }
+  background-color: rgba(0, 0, 0, 0.5); }
   nav ul {
-    text-align: center; }
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333; }
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none; }
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: #cc9933; }
+
+li.dropdown {
+  display: inline-block; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); }
+
+.dropdown-content a {
+  color: #000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left; }
+
+.dropdown-content a:hover {
+  background-color: #3366CC; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
 
 .nav_list--main {
   display: inline-block;
-  padding: 12px;
-  padding-right: 20px; }
+  padding: 0px;
+  padding-right: 78px; }
   .nav_list--main > a {
     color: #bfbfbf;
     text-decoration: none;
-    padding: 30px;
+    padding: 20px;
     font-size: 20px; }
     .nav_list--main > a:hover {
       color: #FFFFFF; }
@@ -2725,7 +2822,8 @@ nav {
 
 .section_padding--left {
   padding: 2%;
-  padding-right: 5%; }
+  padding-right: 5%;
+  padding-left: 3%; }
 
 .section_padding--right {
   padding: 5%;
@@ -2744,13 +2842,17 @@ nav {
   width: 100px;
   height: 100px;
   position: relative;
-  left: 101px; }
+  left: 68px; }
 
 .carbs-icon {
   width: 100px;
   height: 100px;
   position: relative;
-  left: 82px; }
+  left: 63px; }
+
+.about-section {
+  border: 1px dotted;
+  padding: 3%; }
 
 body {
   background-color: #fffffc; }
